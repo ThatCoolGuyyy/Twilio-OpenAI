@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/voice', [VoiceController::class, 'voiceOutput']);
+Route::post('/chat', [VoiceController::class, 'speechtoText']);
+Route::post('/endCall', [VoiceController::class, 'endCall']);
+Route::post('/makeCall', [VoiceController::class, 'makeCall']);
